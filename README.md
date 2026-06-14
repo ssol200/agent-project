@@ -32,7 +32,7 @@
 
 ---
 
-## ⚙️ 시작하기 (Quick Start)
+## ⚙️ 시작하기
 
 ### 1. 환경 설정
 `.streamlit/secrets.toml` 파일에 API 키와 DB 접속 정보를 설정합니다.
