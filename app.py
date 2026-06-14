@@ -252,8 +252,22 @@ LOCAL_MODE = False
 
 
 def get_secret(key, default=""):
-    try: return st.secrets.get(key, default)
-    except Exception: return default
+    try:
+        # 1. st.secrets 확인 (대소문자 구분 없이)
+        if key in st.secrets:
+            return st.secrets[key]
+        if key.lower() in st.secrets:
+            return st.secrets[key.lower()]
+        if key.upper() in st.secrets:
+            return st.secrets[key.upper()]
+        
+        # 2. 환경 변수 확인 (Streamlit Cloud fallback)
+        val = os.environ.get(key)
+        if val: return val
+        
+        return default
+    except Exception:
+        return default
 
 # Supabase client initialization
 @st.cache_resource
@@ -320,10 +334,13 @@ GEMINI_API_KEY = get_secret("GEMINI_API_KEY")
 
 # 전역 클라이언트 대신 필요할 때 최신 키로 호출하는 함수로 변경
 def get_gemini_client():
-    if not GEMINI_API_KEY:
-        st.error("Gemini API 키가 설정되지 않았습니다. 관리자에게 문의하세요.")
+    # 런타임에 다시 한번 확인
+    key = get_secret("GEMINI_API_KEY")
+    if not key:
+        st.error("🔑 **Gemini API 키를 찾을 수 없습니다.**\n\nStreamlit Cloud의 **Settings -> Secrets** 메뉴에 `GEMINI_API_KEY`가 정확히 입력되었는지 확인해주세요.")
+        st.info("💡 **Tip**: 비밀번호 입력 형식이 `GEMINI_API_KEY = \"내_키_값\"` 인지 확인해 보세요.")
         st.stop()
-    return genai.Client(api_key=GEMINI_API_KEY)
+    return genai.Client(api_key=key)
 
 st.markdown("""
 <div style="background-color: #1f2a48; padding: 25px 40px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
