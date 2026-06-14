@@ -1,6 +1,6 @@
-# 🚀 BidGo: AI 입찰 전략 인텔리전스 (Enterprise v2.0)
+# 🚀 BidGo: AI Bidding Assistant
 
-**BidGo**는 생성형 AI(LLM)를 활용하여 나라장터(G2B) 입찰 공고를 실시간으로 분석하고, 기업 역량에 최적화된 사업 선별 및 수주 전략 수립을 지원하는 **프리미엄 입찰 인텔리전스 에이전트**입니다.
+**BidGo**는 생성형 AI(LLM)를 활용하여 나라장터(G2B) 입찰 공고를 실시간으로 분석하고, 기업 역량에 최적화된 사업 선별 및 수주 전략 수립을 지원하는 **입찰 인텔리전스 에이전트**입니다.
 
 ---
 
@@ -32,11 +32,10 @@
 ---
 
 ## 🛠 기술 스택 (Tech Stack)
-- **Framework**: Streamlit (Frontend/Backend)
-- **AI Engine**: Google **Gemini 1.5 Flash / 2.5 Flash**
-- **Database**: Supabase (Cloud) & Local JSON Fallback
-- **Data Processing**: Pandas, PyPDF, Regular Expression
-- **Reliability**: Tenacity (API Retry Logic)
+- **배포**: Streamlit
+- **AI Engine**: Google **Gemini API 1.5 Flash / 2.5 Flash**
+- **Database**: Supabase (Cloud) & Local JSON Fallback(네트워크 오류 시 백업 저장)
+- **Data Processing**: Pandas(입찰 공고 엑셀 정리), PyPDF(RFP 텍스트 추출)
 
 ---
 
@@ -61,5 +60,4 @@ streamlit run app.py
 ```
 
 ---
-**Course**: Business Machine Learning (2026-1)  
-**Developer**: ssol200
+비즈니스머신러닝 (2026-1)  
