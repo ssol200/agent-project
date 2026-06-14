@@ -1,0 +1,12 @@
+streamlit
+pandas
+google-genai
+python-dotenv
+pypdf
+langchain-community
+langchain-google-genai
+supabase
+beautifulsoup4
+requests
+plotly
+openpyxl
