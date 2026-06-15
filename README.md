@@ -16,7 +16,7 @@
 
 ### 🔬 3. 전략적 Deep-Dive (RFP 심층 분석)
 - 제안요청서(RFP) PDF 전문을 분석하여 **입찰 타당성(Pass/Fail)**을 판독합니다.
-- 맞춤형 **수주 전략 및 약점 보완책**을 포함한 임원급 분석 리포트를 생성합니다.
+- 맞춤형 **수주 전략 및 약점 보완책**을 포함한 분석 리포트를 생성합니다.
 
 ### 📜 4. 분석 히스토리 & 리포트
 - 과거의 모든 분석 기록을 실시간 분석과 동일한 퀄리티(게이지 차트, 전략 카드)로 다시 불러옵니다.
@@ -27,7 +27,7 @@
 ## 🛠 기술 스택 (Tech Stack)
 - **배포**: Streamlit
 - **AI Engine**: Google **Gemini API 1.5 Flash / 2.5 Flash**
-- **Database**: Supabase (Cloud) & Local JSON Fallback(네트워크 오류 시 백업 저장)
+- **Database**: Supabase (Cloud)
 - **Data Processing**: Pandas(입찰 공고 엑셀 정리), PyPDF(RFP 텍스트 추출)
 
 ---
